@@ -1,8 +1,27 @@
 body{
-	background-color: #5471FF;
+	background-color: white;
 }
 
 
 h1 { 
 	text-align: center;
  }
+
+
+.weather-inputs{
+	display: inline-block;
+}
+
+.weather-input-box{
+	display: flex;
+	justify-content: center;
+	align-content: space-around;
+}
+
+.button-box{
+	display: flex;
+	justify-content: center;
+}
+.input-button{
+
+}

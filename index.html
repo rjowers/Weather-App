@@ -16,28 +16,36 @@
 
 <body>
 
-  <div class="container">
+  <!--<div class="container">-->
     <div class="row">
       <div class="one-half column">
         <h1 id="title">Weather Getter</h1>
       </div>
     </div>
+    <div class="weather-input-box">
      <fieldset>
         <ul>
-            <li>
+            <li class="weather-inputs">
                 <label for="latitude">Latitude</label>
                 <input type="text" id="latitude" placeholder="e.g. 42.9150747" required>
             </li>
  
-            <li>
+            <li class ="weather-inputs"->
                 <label for="longitude">Longitude</label>
                 <input type="text" id="longitude" placeholder="e.g. -77.784323" required>
             </li>
         </ul>
     </fieldset>
+    </div>
+      <div class="button-box">
+        <button class="input-button">Get Weather</button>
+      </div>
+
+      <div class="hourly-weather">
+      
+      </div>
  
-    <button>Get Weather</button>
-  </div>
+  <!--</div>-->
 
 </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
