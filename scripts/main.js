@@ -1,51 +1,108 @@
 // import $ from 'jquery';
 // import token from "./token.js"
 
-console.log("Hello World from Main Javascript")
+// console.log("Hello World from Main Javascript")
 
-function getData(data) {
+
+ function getData(data, callback) {
     $.ajax({
         url: `https://api.darksky.net/forecast/d8fc3b794588208348c3f592cb9ce424/37.8267,-122.4233`,
         dataType: "jsonp",
         data: {
             q: data
         },
-        success: console.log
+        success: appendData
     })
+
 };
+
+// var getWeather= getData();
 
 getData()
 
-function holdData(data, callback) {
-    $.ajax({
-        url: `https://api.darksky.net/forecast/d8fc3b794588208348c3f592cb9ce424/37.8267,-122.4233`,
-        dataType: "jsonp",
-        data: {
-            q: data
-        },
-        success: callback
-    })
-};
+ 
+function appendData(data){
+    console.log(data)
+    //  for(var count = 0; count < data.length; count++ ){
 
-function name() {
-    console.log(hello )
-}
-holdData()
-var putWeather;
-function appendData(){
-    console.log(inside)
-    for(var count = 0; count < data.currently.length; count++ ){
         putWeather =$(".hourly-weather").html();
         putWeather +=`
-        <p class="weather">$${data.currently.length}</p>
+        <p class="weather">Hello!</p>
+        <p class="weather">${data.currently.cloudCover}</p>
+
 
         `;
         $(".hourly-weather").html(putWeather);
 
-    }
+    //  };
 
 
 };
+
+// appendData();
+
+// function appendData(data) {
+//     console.log(data)
+//     $(".info").append(
+//         `
+//             <div class="columns">
+//             <div class="column">
+//             <ul>
+//             <li class="Name"><span>Name: </span>${data.name}</li>
+//             <li class="phone"><span>Phone Number: </span>803-719-6681</li>
+//             <li class="email"><span>Email: </span>${data.email}</li>
+//             <li class="url"><span>Github URL: </span><a href="${data.html_url}">${data.html_url}</a></li>
+//             <li class="location"><span>Location: </span>${data.location}</li>
+//             </ul>
+//             </div>
+//             <div class="column">
+//             <h1> ABOUT ME </h1>
+//             <p>${data.bio}</p>
+//             </div>
+//             <div class="column">
+//             <img src="${data.avatar_url}"/>
+//             </div>
+//             </div>
+//             `)
+// }
+
+// function holdData(data, callback) {
+//     $.ajax({
+//         url: `https://api.darksky.net/forecast/d8fc3b794588208348c3f592cb9ce424/37.8267,-122.4233`,
+//         dataType: "jsonp",
+//         data: {
+//             q: data
+//         },
+//         success: callback
+//     })
+// };
+
+
+
+// function name() {
+//    console.log('hello')
+// };
+ 
+// name()
+
+
+
+// holdData()
+// var putWeather;
+// function appendData(){
+//     console.log(inside)
+//     for(var count = 0; count < data.currently.length; count++ ){
+//         putWeather =$(".hourly-weather").html();
+//         putWeather +=`
+//         <p class="weather">$${data.currently.length}</p>
+
+//         `;
+//         $(".hourly-weather").html(putWeather);
+
+//     }
+
+
+// };
 
 
 // var putImages;
