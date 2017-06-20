@@ -117,7 +117,72 @@ function appendData(data){
      };
 
 
+var x=document.getElementById("demo");
+function getLocation(){
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showPosition,showError);
+    }
+    else{
+        document.getElementById("demo").innerHTML="Geolocation is not supported by this browser.";
+    }
+}
 
+function showPosition(position){
+    lat=position.coords.latitude;
+    lon=position.coords.longitude;
+    displayLocation(lat,lon);
+    console.log(lat);
+    console.log(lon);
+
+}
+
+function showError(error){
+    switch(error.code){
+        case error.PERMISSION_DENIED:
+            document.getElementById("demo").innerHTML="User denied the request for Geolocation."
+        break;
+        case error.POSITION_UNAVAILABLE:
+            document.getElementById("demo").innerHTML="Location information is unavailable."
+        break;
+        case error.TIMEOUT:
+            document.getElementById("demo").innerHTML="The request to get user location timed out."
+        break;
+        case error.UNKNOWN_ERROR:
+            document.getElementById("demo").innerHTML="An unknown error occurred."
+        break;
+    }
+}
+
+function displayLocation(latitude,longitude){
+    var geocoder;
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(latitude, longitude);
+
+    geocoder.geocode(
+        {'latLng': latlng}, 
+        function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    var add= results[0].formatted_address ;
+                    var  value=add.split(",");
+
+                    count=value.length;
+                    country=value[count-1];
+                    state=value[count-2];
+                    city=value[count-3];
+                    document.getElementById("demo").innerHTML = "city name is: " + city;
+                            console.log(latlng);
+                 }
+                else  {
+                    document.getElementById("demo").innerHTML = "address not found";
+                }
+            }
+            else {
+                document.getElementById("demo").innerHTML = "Geocoder failed due to: " + status;
+            }
+        }
+    );
+}
 
 // appendData();
 
