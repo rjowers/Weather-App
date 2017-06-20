@@ -15,3 +15,22 @@ h1 {
 .button-box {
   display: flex;
   justify-content: center; }
+
+.currently {
+  text-align: center; }
+
+.current-weather {
+  text-align: center; }
+
+.weather-box {
+  border: solid;
+  height: 200px;
+  width: 200px; }
+  .weather-box p {
+    text-align: center; }
+
+.daily-weather {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around; }

@@ -20,24 +20,104 @@
 
 getData()
 
+var searchBox = new google.maps.places.SearchBox();
+var searchBox = new google.maps.places.SearchBox(document.querySelector("#city-search"));
+searchBox.addListener('places_changed', function() {});
+
+searchBox.addListener('places_changed', function() {
+    var locale = searchBox.getPlaces()[0];
+});
+
+document.querySelector("#latitude").value = place.geometry.location.lat();
+document.querySelector("#longitude").value = place.geometry.location.lng();
+
  
 function appendData(data){
     console.log(data)
     //  for(var count = 0; count < data.length; count++ ){
 
-        putWeather =$(".hourly-weather").html();
+        putWeather =$(".current-weather").html();
         putWeather +=`
-        <p class="weather">Hello!</p>
-        <p class="weather">${data.currently.cloudCover}</p>
+        <span class="temp">${data.currently.temperature}°F<span> 
+        <span class="skies">The skies are ${data.currently.summary} and there is a ${data.currently.visibility} mile visibility <span> 
 
 
         `;
-        $(".hourly-weather").html(putWeather);
+        $(".current-weather").html(putWeather);
 
-    //  };
+    putDaily =$(".daily-weather").html();
+        putDaily +=`
+         <div class="weather-box">
+            <p>Sunday</p>
+            <p>${data.daily.data[0].summary}</p>
+            <p>${data.daily.data[0].apparentTemperatureMax}°F High</p>
+            <p>${data.daily.data[0].apparentTemperatureMin}°F Low</p>
+            <p>${data.daily.data[0].precipProbability}% chance for rain</p>
+            <p>${data.daily.data[0].humidity}%humidity</p>
+         </div>
+
+         <div class="weather-box">
+            <p>Monday</p>
+            <p>${data.daily.data[1].summary}</p>
+            <p>${data.daily.data[1].apparentTemperatureMax}°F High</p>
+            <p>${data.daily.data[1].apparentTemperatureMin}°F Low</p>
+            <p>${data.daily.data[1].precipProbability}% chance for rain</p>
+            <p>${data.daily.data[1].humidity}%humidity</p>
+         </div>
+
+         <div class="weather-box">
+            <p>Tuesday</p>
+            <p>${data.daily.data[2].summary}</p>
+            <p>${data.daily.data[2].apparentTemperatureMax}°F High</p>
+            <p>${data.daily.data[2].apparentTemperatureMin}°F Low</p>
+            <p>${data.daily.data[2].precipProbability}% chance for rain</p>
+            <p>${data.daily.data[2].humidity}%humidity</p>
+         </div>
+
+         <div class="weather-box">
+            <p>Wednesday</p>
+            <p>${data.daily.data[3].summary}</p>
+            <p>${data.daily.data[3].apparentTemperatureMax}°F High</p>
+            <p>${data.daily.data[3].apparentTemperatureMin}°F Low</p>
+            <p>${data.daily.data[3].precipProbability}% chance for rain</p>
+            <p>${data.daily.data[3].humidity}%humidity</p>
+         </div>
+
+         <div class="weather-box">
+            <p>Thursday</p>
+            <p>${data.daily.data[4].summary}</p>
+            <p>${data.daily.data[4].apparentTemperatureMax}°F High</p>
+            <p>${data.daily.data[4].apparentTemperatureMin}°F Low</p>
+            <p>${data.daily.data[4].precipProbability}% chance for rain</p>
+            <p>${data.daily.data[4].humidity}%humidity</p>
+         </div>
+
+         <div class="weather-box">
+            <p>Friday</p>
+            <p>${data.daily.data[5].summary}</p>
+            <p>${data.daily.data[5].apparentTemperatureMax}°F High</p>
+            <p>${data.daily.data[5].apparentTemperatureMin}°F Low</p>
+            <p>${data.daily.data[5].precipProbability}% chance for rain</p>
+            <p>${data.daily.data[5].humidity}%humidity</p>
+         </div>
+
+         <div class="weather-box">
+            <p>Saturday</p>
+            <p>${data.daily.data[6].summary}</p>
+            <p>${data.daily.data[6].apparentTemperatureMax}°F High</p>
+            <p>${data.daily.data[6].apparentTemperatureMin}°F Low</p>
+            <p>${data.daily.data[6].precipProbability}% chance for rain</p>
+            <p>${data.daily.data[6].humidity}%humidity</p>
+         </div>
+
+      
+
+        `;
+        $(".daily-weather").html(putDaily);
+     };
 
 
-};
+
 
 // appendData();
 
