@@ -1,8 +1,17 @@
-body {
-  background-color: white; }
-
 h1 {
   text-align: center; }
+
+.background-images {
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0; }
 
 .weather-inputs {
   display: inline-block; }
@@ -10,7 +19,11 @@ h1 {
 .weather-input-box {
   display: flex;
   justify-content: center;
-  align-content: space-around; }
+  align-content: space-around;
+  flex-direction: column; }
+
+.click-me {
+  text-align: center; }
 
 .button-box {
   display: flex;
@@ -34,3 +47,45 @@ h1 {
   justify-content: center;
   flex-direction: row;
   justify-content: space-around; }
+
+.locator-button {
+  background-color: #022d41;
+  color: #1aa6b7;
+  width: 220px;
+  height: 70px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 70px;
+  font-family: 'Squada One', cursive;
+  font-size: 28px;
+  border: none; }
+
+/* Outline Out */
+.hvr-outline-out {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative; }
+
+.hvr-outline-out:before {
+  content: '';
+  position: absolute;
+  border: #ff7159 solid 4px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: top, right, bottom, left;
+  transition-property: top, right, bottom, left; }
+
+.hvr-outline-out:hover:before, .hvr-outline-out:focus:before, .hvr-outline-out:active:before {
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px; }

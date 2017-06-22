@@ -1,8 +1,11 @@
 {
-"devDependencies": {
-  "gulp": "latest",
-  "gulp-util": "latest",
-  "gulp-sass": "latest",
-  "gulp-connect": "latest"
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-util": "latest",
+    "gulp-sass": "latest",
+    "gulp-connect": "latest"
+  },
+  "dependencies": {
+    "hover.css": "^2.2.0"
   }
 }

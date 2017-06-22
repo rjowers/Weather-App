@@ -8,13 +8,14 @@
   <meta name="author" content="">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Squada+One">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/main.css">
 
 </head>
 
 <body>
+<img class="background-images" src="bluemountains.jpg" alt="">
 
   <!--<div class="container">-->
     <div class="row">
@@ -23,7 +24,9 @@
       </div>
     </div>
     <div class="weather-input-box">
-     <fieldset>
+      <p class="click-me locator"><button class="locator-button hvr-outline-out"  onclick="getLocation()">Get Weather </button></p>
+<p class="click-me" id="demo"></p>
+     <!--<fieldset>
         <ul>
           <li>
                <label for="city-search">City Name</label>
@@ -39,11 +42,9 @@
                 <input type="text" id="longitude" placeholder="e.g. -77.784323" required>
             </li>
         </ul>
-    </fieldset>
+    </fieldset>-->
     </div>
-      <div class="button-box">
-        <button class="input-button">Get Weather</button>
-      </div>
+     
 
         <h2 class="currently">Currently</h2>
        
@@ -57,11 +58,13 @@
       
       </div>
 
-      <p><button onclick="getLocation()">Get My Location</button></p>
-<p id="demo"></p>
+      <!--<p><button onclick="getLocation()">Get My Location</button></p>
+<p id="demo"></p>-->
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyD3LCWRWKfgyuVh3GIQ5oGb4a-nDnN0zn4"></script>
     
   <!--</div>-->
+
+
 
 </body>
 <script

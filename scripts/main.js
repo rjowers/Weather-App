@@ -6,30 +6,47 @@
 
  function getData(data, callback) {
     $.ajax({
-        url: `https://api.darksky.net/forecast/d8fc3b794588208348c3f592cb9ce424/37.8267,-122.4233`,
+        url: "https://api.darksky.net/forecast/d8fc3b794588208348c3f592cb9ce424/"+ lat + "," + lon,
         dataType: "jsonp",
         data: {
             q: data
         },
+        // success: getLocation
         success: appendData
+        
     })
-
+    console.log(lat);
+    console.log(lon);
 };
-
-// var getWeather= getData();
 
 getData()
 
-var searchBox = new google.maps.places.SearchBox();
-var searchBox = new google.maps.places.SearchBox(document.querySelector("#city-search"));
-searchBox.addListener('places_changed', function() {});
+        // url: `https://api.darksky.net/forecast/d8fc3b794588208348c3f592cb9ce424/"+lat+","+lon+".json`,
 
-searchBox.addListener('places_changed', function() {
-    var locale = searchBox.getPlaces()[0];
-});
 
-document.querySelector("#latitude").value = place.geometry.location.lat();
-document.querySelector("#longitude").value = place.geometry.location.lng();
+
+        // url: `https://api.darksky.net/forecast/d8fc3b794588208348c3f592cb9ce424/37.8267,-122.4233`,
+
+
+
+// var getWeather= getData();
+
+
+
+
+// var searchBox = new google.maps.places.SearchBox();
+
+// var searchBox = new google.maps.places.SearchBox(document.querySelector("#city-search"));
+
+// searchBox.addListener('places_changed', function() {});
+
+// searchBox.addListener('places_changed', function() {
+//     var locale = searchBox.getPlaces()[0];
+// });
+
+// document.querySelector("#latitude").value = place.geometry.location.lat();
+// document.querySelector("#longitude").value = place.geometry.location.lng();
+
 
  
 function appendData(data){
@@ -116,25 +133,49 @@ function appendData(data){
         $(".daily-weather").html(putDaily);
      };
 
+     
+
+
 
 var x=document.getElementById("demo");
 function getLocation(){
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(showPosition,showError);
+       
     }
     else{
         document.getElementById("demo").innerHTML="Geolocation is not supported by this browser.";
     }
+    
 }
+
+
+// var lat=[];
+// var lon=[];
 
 function showPosition(position){
-    lat=position.coords.latitude;
-    lon=position.coords.longitude;
+   lat=position.coords.latitude;
+   lon=position.coords.longitude;
     displayLocation(lat,lon);
+    getData(lat,lon);
+
     console.log(lat);
     console.log(lon);
-
+    // return {lat,lon};
+    
+    
 }
+
+
+// function getLon(position){
+//    var long=position.coords.longitude;
+//     displayLocation(long);
+//     console.log(long);
+    
+// }
+
+
+
 
 function showError(error){
     switch(error.code){
@@ -153,6 +194,8 @@ function showError(error){
     }
 }
 
+
+
 function displayLocation(latitude,longitude){
     var geocoder;
     geocoder = new google.maps.Geocoder();
@@ -170,7 +213,7 @@ function displayLocation(latitude,longitude){
                     country=value[count-1];
                     state=value[count-2];
                     city=value[count-3];
-                    document.getElementById("demo").innerHTML = "city name is: " + city;
+                    document.getElementById("demo").innerHTML = "You live in" + city;
                             console.log(latlng);
                  }
                 else  {
@@ -183,6 +226,16 @@ function displayLocation(latitude,longitude){
         }
     );
 }
+
+
+
+
+
+
+
+
+
+
 
 // appendData();
 
